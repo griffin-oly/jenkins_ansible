@@ -14,3 +14,10 @@
   #
   roles:
      - common  # common apps install and check
+  tasks:
+     - name: test copy a file
+       copy:
+          src: /etc/hosts
+          dest: /opt/test/hosts
+          mode: 0644
+
