@@ -1,13 +1,9 @@
 ---
-# The site.yml playbook is designed for the entire olympus site
-# # As such each task is a role and lets only work on groups
-# # and not indiviual hosts.  If you have something that only
-# # needs to be run on one host in most cases that should be in
-# # a different playbook.
-# #
-# # Execution for testing of this script is in the test subfolder.
-# #
-- hosts: linux
+# The test_domain playbook is designed for testing connectivity 
+# from the jenkins sever to ansible and ansible tower.
+#
+#
+- hosts: tower
   become: yes
   become_user: root
   become_method: sudo
@@ -18,6 +14,6 @@
      - name: test copy a file
        copy:
           src: /etc/hosts
-          dest: /opt/test/hosts
+          dest: /opt/test/hosts2
           mode: 0644
 
