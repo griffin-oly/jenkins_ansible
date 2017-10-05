@@ -1,0 +1,27 @@
+---
+# these can be overridden by the VARs directory vars.
+#
+# Packages that will be installed as a baseline
+
+# just the common packages across our network
+# these will be installed on all machines reguardless
+# of their function on the network.
+
+# Packages that will be installed as a baseline
+common_packages:
+  - bind-utils    # dig ifconfig etc.
+  - net-tools     # Misc networking tools.
+  - zip           # archiving tool
+  - unzip         # archiving tool
+  - gzip          # archiving tool
+
+group_packages: []  # default is empty list this is set in group_vars
+
+
+# User related vars
+#
+common_users:
+  - testuser1a
+  - testuser1b
+
+common_user_home: /home

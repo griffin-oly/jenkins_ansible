@@ -1,0 +1,16 @@
+---
+# The site.yml playbook is designed for the entire olympus site
+# # As such each task is a role and lets only work on groups
+# # and not indiviual hosts.  If you have something that only
+# # needs to be run on one host in most cases that should be in
+# # a different playbook.
+# #
+# # Execution for testing of this script is in the test subfolder.
+# #
+- hosts: linux
+  become: yes
+  become_user: root
+  become_method: sudo
+  #
+  roles:
+     - common  # common apps install and check
