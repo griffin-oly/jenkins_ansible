@@ -8,6 +8,7 @@
   vars_files:
     - jenkins/settings.yml
     - jenkins/common_secrets.yml
+  no_log: true
 
   # Handers
   handlers:
@@ -19,3 +20,4 @@
     # Setup Jenkins build jobs
     - include_tasks: jenkins/{{ item }}/job.yml
       with_items: "{{ build_jobs }}"
+      no_log: false
