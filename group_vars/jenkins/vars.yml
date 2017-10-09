@@ -1,8 +1,11 @@
 ---
 jenkins_url: tower.wfoai.com
-# jenkins_username: 'admin'
-# jenkins_admin_pass: 'SYbore11'
-# jenkens_token: '083bf20db4529e6c72782a43dd93b69c'
+
+# Stored in vault.yml
+#####################################
+# jenkins_username: 'XXXXXX'
+# jenkins_admin_pass: 'XXXXXXXXXXXXXX'
+# jenkens_token: 'XXXXXXXXXXXXXXXXXXX'
 jenkens_host_url: http://tower.wfoai.com:8080
 
 
