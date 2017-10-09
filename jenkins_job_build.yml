@@ -8,6 +8,7 @@
   vars_files:
     - jenkins/settings.yml
     - jenkins/common_secrets.yml
+      no_log: yes
 
   # Handers
   handlers:
