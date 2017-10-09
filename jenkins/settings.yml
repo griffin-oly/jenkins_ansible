@@ -20,3 +20,4 @@ antName: AutoInstalled
 builds_jobs_dir: jenkins
 build_jobs:
    - myjob1
+   - myjob2
