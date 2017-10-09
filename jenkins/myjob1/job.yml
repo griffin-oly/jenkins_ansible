@@ -1,7 +1,7 @@
 ---
 # Variables
-- include_vars: jenkins/{{ jobDir }}/variables.yml
-- include_vars: jenkins/{{ jobDir }}/secrets.yml
+- include_vars: jenkins/myjob1/variables.yml
+- include_vars: jenkins/myjob1/secrets.yml
   no_log: yes
 
 - name: Create job in Jenkins
