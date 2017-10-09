@@ -18,6 +18,6 @@
   # Tasks
   tasks:
     # Setup Jenkins build jobs
-    - include_tasks: jenkins/{{ item }}/job.yml
+    - include_tasks: jenkins/{{ item.jobDir }}/job.yml MyJobDir={{ item.jobDir }}
       with_items: "{{ build_jobs }}"
       no_log: false

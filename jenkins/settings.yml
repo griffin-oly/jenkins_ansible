@@ -18,6 +18,8 @@ antName: AutoInstalled
 
 # Jobs
 builds_jobs_dir: jenkins
+
+# Edit with each job to be built.
 build_jobs:
-   - myjob1
-   - myjob2
+   - {jobName: "First Job" , jobDir: "myjob1"}
+   - {jobName: "Second Job", jobDir: "myjob2"}

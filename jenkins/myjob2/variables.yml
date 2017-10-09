@@ -6,8 +6,7 @@
 jobName: 'MyJob Test2'
 jobDir: 'myjob2'
 description: 'Ant build from Vanithas project'
-projectUrl: https://bitbucket.org/jmiremba/geldzin4dev/
-displayName: 'Development project on Ansible Tower'
+displayName: 'Development project on Ansible Tower two'
 gitUrl: 'git@github.com:olysfe/sfdc_new.git'
 repoBranch: 'dev'
 scmPolling: 'H/40 * * * *'
