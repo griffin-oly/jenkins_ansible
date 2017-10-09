@@ -10,17 +10,3 @@
     user: "{{ jenkins_username }}"
     token: "{{ jenkens_token }}"
 
-- name: Copy build.xml to job directory
-  template: 
-    src: "templates/build.xml.j2"
-    dest: "{{ jenkins_jobs_dir }}/build.xml"
-    owner: jenkins
-    group: jenkins
-  
-- name: Copy build.properties to job directory
-  template:
-    src: "templates/build.properties.j2"
-    dest: "{{ jenkins_jobs_dir }}/build.properties"
-    owner: jenkins
-    group: jenkins
-
