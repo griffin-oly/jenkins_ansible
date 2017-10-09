@@ -1,0 +1,8 @@
+---
+jobName: 'myjob1'
+description: 'Ant build from Vanithas project'
+projectUrl: https://bitbucket.org/jmiremba/geldzin4dev/
+displayName: 'Development project on BitBucket'
+gitUrl: 'git@github.com:olysfe/sfdc_new.git'
+repoBranch: 'dev'
+scmPolling: 'H/15 * * * *'

@@ -1,0 +1,26 @@
+---
+# Variables
+- include_vars: jenkins/myjob1/variables.yml
+- include_vars: jenkins/myjob1/secrets.yml
+
+- name: Create job in Jenkins
+  jenkins_job:
+    config: "{{ lookup('template', 'templates/config.xml.j2') }}"
+    name: Auto_Test
+    user: "{{ jenkins_username }}"
+    token: "{{ jenkens_token }}"
+
+- name: Copy build.xml to job directory
+  template: 
+    src: "templates/build.xml.j2"
+    dest: "{{ jenkins_jobs_dir }}/build.xml"
+    owner: jenkins
+    group: jenkins
+  
+- name: Copy build.properties to job directory
+  template:
+    src: "templates/build.properties.j2"
+    dest: "{{ jenkins_jobs_dir }}/build.properties"
+    owner: jenkins
+    group: jenkins
+

@@ -1,0 +1,27 @@
+---
+# Jenkins job definitions
+- hosts: jenkins
+#  become: yes
+#  roles:
+#     - Azulinho.azulinho-jenkins-reconfigure-jobs-using-jinja2
+#
+  tasks:
+     - name: Delete test jobs
+       jenkins_job:
+         name: "{{ item }}" 
+         token: "{{ jenkens_token }}"
+         state: absent
+         url: "{{ jenkens_host_url }}"
+         user: "{{ jenkins_username }}"
+       with_items:
+         - quidryan-aws-sdk-test-master
+         - quidryan-aws-sdk-test-feature1
+         - quidryan-aws-sdk-test-feature2
+     - name: Create New Job
+       jenkins_job:
+         config: "{{ lookup('template', 'templates/test.xml.j2') }}"
+         name: auto-test
+         token: "{{ jenkens_token }}"
+         url: "{{ jenkens_host_url }}"
+         user: "{{ jenkins_username }}" 
+     

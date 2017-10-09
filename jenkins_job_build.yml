@@ -1,0 +1,21 @@
+---
+# Where builds happen
+- hosts: jenkins 
+  become: yes
+  gather_facts: yes
+
+  # Variables
+  vars_files:
+    - jenkins/settings.yml
+    - jenkins/common_secrets.yml
+
+  # Handers
+  handlers:
+    - name: Restart Jenkins
+      service: name=jenkins state=restarted
+  
+  # Tasks
+  tasks:
+    # Setup Jenkins build jobs
+    - include_tasks: jenkins/{{ item }}/job.yml
+      with_items: "{{ build_jobs }}"

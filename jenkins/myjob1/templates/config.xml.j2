@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+     {{ ansible_managed }}
+-->
+
+<project>
+  <actions/>
+  <description>{{ description }}</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>{{ daysToKeep }}</daysToKeep>
+        <numToKeep>{{ numToKeep }}</numToKeep>
+        <artifactDaysToKeep>{{ artifactDaysToKeep }}</artifactDaysToKeep>
+        <artifactNumToKeep>{{ artifactNumToKeep }}</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>{{ gitUrl }}</url>
+        <credentialsId>{{ credentialsId }}</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>{{ repoBranch }}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.SCMTrigger>
+      <spec>{{ scmPolling }}</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Ant plugin="ant@1.7">
+      <targets>deployCode</targets>
+      <antName>{{ antName }}</antName>
+    </hudson.tasks.Ant>
+  </builders>
+  <publishers>
+    <hudson.plugins.git.GitPublisher plugin="git@3.6.0">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>false</pushOnlyIfSuccess>
+      <forcePush>false</forcePush>
+    </hudson.plugins.git.GitPublisher>
+    <hudson.tasks.Mailer plugin="mailer@1.20">
+      <recipients>{{ emailRecipient }}</recipients>
+      <dontNotifyEveryUnstableBuild>true</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers>
+    <hudson.tasks.AntWrapper plugin="ant@1.7">
+      <installation>AutoInstalled</installation>
+      <jdk>Java SE Dev 1.8.0</jdk>
+    </hudson.tasks.AntWrapper>
+  </buildWrappers>
+</project>

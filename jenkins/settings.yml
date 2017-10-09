@@ -1,0 +1,22 @@
+---
+# Jenkins
+jenkins_home_dir: /var/lib/jenkins
+jenkins_jobs_dir: '{{ jenkins_home_dir }}/jobs'
+
+# Common
+credentialsId: "{{ common_secret_credentialsId }}"
+emailRecipient: 'griffin.goodman@olympus.com'
+
+# Retention
+daysToKeep: 7
+numToKeep: 10
+artifactDaysToKeep: -1
+artifactNumToKeep: -1
+
+# Ant config
+antName: AutoInstalled
+
+# Jobs
+builds_jobs_dir: jenkins
+build_jobs:
+   - myjob1
