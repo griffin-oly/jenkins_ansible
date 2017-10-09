@@ -3,8 +3,8 @@
 # since it has the name and directory
 # which will change for each new job.
 #
-jobName: 'MyJob Test1'
-jobDir: 'myjob1'
+jobName: 'MyJob Test2'
+jobDir: 'myjob2'
 description: 'Ant build from Vanithas project'
 projectUrl: https://bitbucket.org/jmiremba/geldzin4dev/
 displayName: 'Development project on Ansible Tower'

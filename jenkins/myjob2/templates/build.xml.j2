@@ -1,0 +1,17 @@
+<project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+
+        <target name="deployMeta">
+                <sf:deploy username="${devFullOrg.username}" password="${devFullOrg.password}" serverurl="${devFullOrg.serverurl}"
+          deployRoot="metadata" />
+        </target>
+
+        <target name="deployCode">
+                <sf:deploy username="${devFullOrg.username}" password="${devFullOrg.password}" serverurl="${devFullOrg.serverurl}"
+                  deployRoot="src"  rollbackOnError="true"   />
+        </target>
+
+
+</project>
