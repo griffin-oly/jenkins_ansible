@@ -5,8 +5,8 @@
 #
 jobName: 'MyJob Test2'
 jobDir: 'myjob2'
-description: 'Ant build from Vanithas project'
+description: 'Ant build from Vanithas second test'
 displayName: 'Development project on Ansible Tower two'
 gitUrl: 'git@github.com:olysfe/sfdc_new.git'
 repoBranch: 'dev'
-scmPolling: 'H/40 * * * *'
+scmPolling: 'H/20 * * * *'
